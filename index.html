@@ -1,65 +1,239 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Clinic Appointment Scheduling</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
 
-<body>
-    <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <h1>Clinic Scheduler</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+/* Variables for easy theme swapping */
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary: #0f172a;
+    --accent: #06b6d4;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
 
-    <!-- Main Banner Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Schedule Your Appointment Online in Minutes</h2>
-            <p>Easy, fast, and reliable appointment scheduling for your health care needs.</p>
-            <a href="booking.html" class="cta-button">Book an Appointment</a>
-        </div>
-    </section>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- Features Section -->
-    <section id="about" class="features">
-        <h2>Why Choose Us?</h2>
-        <div class="feature-cards">
-            <div class="feature-card">
-                <h3>Real-Time Scheduling</h3>
-                <p>Access up-to-date availability of your healthcare providers and book instantly.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Automated Reminders</h3>
-                <p>Receive SMS and email reminders so you never miss an appointment.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Convenience</h3>
-                <p>Schedule your appointment anytime, anywhere, from any device.</p>
-            </div>
-        </div>
-    </section>
+html {
+    scroll-behavior: smooth;
+}
 
-    <!-- Footer Section -->
-    <footer id="contact">
-        <p>Contact Us: <a href="mailto:contact@clinicscheduler.com">contact@clinicscheduler.com</a></p>
-        <p>© 2025 Clinic Scheduler</p>
-    </footer>
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.7;
+}
 
-    <script src="script.js"></script>
-</body>
+/* --- Navigation --- */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 8%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
 
-</html>
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+.login-link {
+    background: var(--secondary);
+    color: white !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+}
+
+/* --- Hero Section --- */
+.hero {
+    padding: 120px 8% 80px;
+    background: radial-gradient(circle at top right, #e0f2fe, #f8fafc);
+    text-align: center;
+}
+
+.badge {
+    background: #dbeafe;
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.hero-content h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    color: var(--secondary);
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cta-button {
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 600;
+    border: 1px solid #cbd5e1;
+    transition: 0.3s;
+}
+
+/* --- Features Section --- */
+.features {
+    padding: 100px 8%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--secondary);
+}
+
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: left;
+    transition: 0.3s;
+    border: 1px solid #f1f5f9;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: #eff6ff;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--secondary);
+    color: #94a3b8;
+    padding: 80px 8% 40px;
+    text-align: center;
+}
+
+.footer-logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #1e293b;
+    margin: 2rem 0;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    nav ul {
+        gap: 1rem;
+    }
+    .hero-btns {
+        flex-direction: column;
+    }
+}
